@@ -5,7 +5,7 @@
 
 
 header {
-    background-color: navy;
+    background-color: rgb(52, 52, 53);
     color: white;
     padding: 20px;
     text-align: center;
@@ -15,7 +15,7 @@ header {
 
 body {
     width: 100%;
-    background-color: azure;
+    background-color: rgb(52, 20, 4);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -43,6 +43,7 @@ ul {
 }
 
 li {
+    max-width: 455px;
     margin-bottom: 10px;
     padding: 10px;
     margin-top: 10px;
@@ -50,17 +51,34 @@ li {
     background-color: rgb(187, 187, 242);
     color: navy;
     display: flex;
+    justify-content: space-between; /* Asegura que los elementos se distribuyan correctamente */
+    width: 455px;
+    height: auto;
+    word-wrap: break-word;
+    overflow-y: hidden;
     align-items: center;
-    justify-content: space-between;
+}
+
+li .tarea-texto {
+    max-width: 280px;
+    flex: 1; /* Permite que el texto ocupe el espacio disponible */
+    overflow: visible; /* Asegura que el texto no se recorte */
+    white-space: normal; /* Permite que el texto se ajuste a múltiples líneas */
+    word-wrap: break-word; /* Asegura que el texto se ajuste dentro del contenedor */
 }
 
 ul button, li button {
     margin-left: 15px;
-    background-color: blue;
+    background-color: rgb(233, 233, 237);
     color: white;
     padding: 10px;
     border: none;
     border-radius: 5px;
+}
+
+.botones-juntos {
+    display: flex;
+    align-items: center;
 }
 
 
@@ -74,5 +92,55 @@ ul button, li button {
     padding: 10px; 
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.8);
-    color: navy;
+    color: rgb(11, 11, 38);
 }
+
+/* Estilo para el botón de completado */
+.boton-completar {
+    background-color: #870404;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    right: 255px;
+}
+
+/* Estilo para el SVG dentro del botón */
+.boton-completar svg {
+    stroke: white; /* Color del icono en el botón */
+    width: 20px; /* Ajusta el tamaño del icono si es necesario */
+    height: 20px; /* Ajusta el tamaño del icono si es necesario */
+}
+
+/* Estilo cuando el mouse pasa sobre el botón */
+.boton-completar:hover {
+    background-color: #218838; /* Color de fondo cuando el mouse pasa sobre el botón */
+}
+
+/* Estilo para el botón cuando está activo */
+.boton-completar.activo {
+    background-color: #28a745; /* Color de fondo cuando el botón está activo */
+}
+
+/* Estilo para el SVG dentro del botón cuando está activo */
+.boton-completar.activo svg {
+    stroke: white; /* Color del icono cuando el botón está activo */
+}
+
+.boton-eliminar {
+    background-color: rgb(187, 187, 242);
+    border-radius: 5px;
+    padding: 3px 7px;
+    align-items: center;
+    justify-content: center;
+}
+
+.boton-eliminar svg {
+    width: 26px;
+    height: 23px;
+}
+
+.boton-eliminar:hover {
+    background-color: #870404; /* Color de fondo rojo oscuro al pasar el ratón */
+}
+
