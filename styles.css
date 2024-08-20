@@ -3,10 +3,9 @@
     margin: 0;
 }
 
-
 header {
     display: flex;
-    background-color: rgb(233, 103, 47);
+    background-color: rgb(132 73 47);
     color: rgb(255, 255, 255);
     padding: 10px;
     font-size: 29px;
@@ -21,7 +20,7 @@ header {
 
 body {
     width: 100%;
-    background-color: rgb(52, 20, 4);
+    background-color: #180800f6;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -57,7 +56,7 @@ li {
     padding: 10px;
     margin-top: 10px;
     border-radius: 5px;
-    background-color: rgb(187, 187, 242);
+    background-color: rgba(40, 33, 33, 0.896);
     color: navy;
     display: flex;
     justify-content: space-between; /* Asegura que los elementos se distribuyan correctamente */
@@ -70,10 +69,12 @@ li {
 
 li .tarea-texto {
     max-width: 280px;
-    flex: 1; /* Permite que el texto ocupe el espacio disponible */
-    overflow: visible; /* Asegura que el texto no se recorte */
-    white-space: normal; /* Permite que el texto se ajuste a múltiples líneas */
-    word-wrap: break-word; /* Asegura que el texto se ajuste dentro del contenedor */
+    flex: 1;
+    overflow: visible;
+    white-space: normal;
+    font-size: 17px;
+    color: lightblue;
+    word-wrap: break-word;
 }
 
 ul button, li button {
@@ -90,7 +91,6 @@ ul button, li button {
     align-items: center;
 }
 
-
 #agregarTarea {
     margin-bottom: 20px;
     display: flex;
@@ -98,10 +98,11 @@ ul button, li button {
     justify-content: space-between;
     width: 100%;
     max-width: 500px;
-    padding: 10px; 
+    padding: 10px;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: rgb(11, 11, 38);
+    background-color: rgba(40, 33, 33, 0.896);
+    font-size: 20px;
+    color: lightblue;
 }
 
 /* Estilo para el botón de completado */
