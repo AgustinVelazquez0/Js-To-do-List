@@ -41,6 +41,11 @@ main {
     color: white;
     padding: 10px 20px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+button:hover {
+    background-color: #2a1202; 
 }
 
 ul {
@@ -98,11 +103,11 @@ ul button, li button {
     justify-content: space-between;
     width: 100%;
     max-width: 500px;
-    padding: 10px;
     border-radius: 5px;
     background-color: rgba(40, 33, 33, 0.896);
     font-size: 20px;
     color: lightblue;
+    height: 40px;
 }
 
 /* Estilo para el botón de completado */
@@ -154,3 +159,15 @@ ul button, li button {
     background-color: #870404; /* Color de fondo rojo oscuro al pasar el ratón */
 }
 
+@media (max-width: 768px) {
+    /* Estilos específicos para pantallas con un ancho máximo de 768px */
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    li {
+        width: 300px;
+    }
+}
