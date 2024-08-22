@@ -20,9 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 }
 
+// Define una función para agregar una tarea al DOM, con un parámetro para el texto de la tarea y otro opcional para marcar si está completada.
 function agregarTareaDOM(texto, completada = false) {
     const tareaHTML = `
-        <li class="${completada ? 'completed' : ''}">
+        <li class="${completada ? 'completed' : ''}"> 
             <span class="tarea-texto">${texto}</span>
             <section class="botones-juntos">
             <button class="boton-completar ${completada ? 'activo' : ''}">
@@ -48,34 +49,31 @@ function agregarTareaDOM(texto, completada = false) {
             </section>
         </li>
     `;
-    ul.insertAdjacentHTML('beforeend', tareaHTML);
+    ul.insertAdjacentHTML('beforeend', tareaHTML); // Inserta el HTML de la tarea al final de la lista (ul) en el DOM.
 
     // Añadir eventos a los botones
-    const li = ul.lastElementChild;
-    const botonCompletar = li.querySelector('.boton-completar');
-    const botonEliminar = li.querySelector('.boton-eliminar');
+    const li = ul.lastElementChild; // Selecciona el último <li> agregado, que corresponde a la tarea recién insertada.
+    const botonCompletar = li.querySelector('.boton-completar'); // Selecciona el botón de completar dentro del <li>.
+    const botonEliminar = li.querySelector('.boton-eliminar'); // Selecciona el botón de eliminar dentro del <li>.
 
-    botonCompletar.addEventListener('click', (e) => {
-        e.stopPropagation();
-        botonCompletar.classList.toggle('activo');
-        li.classList.toggle('completed');
-        actualizarTareaLocalStorage(texto, li.classList.contains('completed'));
+    botonCompletar.addEventListener('click', (e) => { // Añade un evento 'click' al botón de completar.
+        e.stopPropagation(); // Evita que el evento se propague a otros elementos.
+        botonCompletar.classList.toggle('activo'); // Cambia la clase 'activo' del botón para marcar/desmarcar la tarea como completada.
+        li.classList.toggle('completed'); // Cambia la clase 'completed' del <li> para marcar/desmarcar la tarea como completada.
+        actualizarTareaLocalStorage(texto, li.classList.contains('completed')); // Actualiza el estado de la tarea en el local storage.
     });
 
-    botonEliminar.addEventListener('click', (e) => {
-        e.stopPropagation();
-        ul.removeChild(li);
-        eliminarTareaLocalStorage(texto);
+    botonEliminar.addEventListener('click', (e) => { // Añade un evento 'click' al botón de eliminar.
+        e.stopPropagation(); // Evita que el evento se propague a otros elementos.
+        ul.removeChild(li); // Elimina el <li> correspondiente a la tarea del DOM.
+        eliminarTareaLocalStorage(texto); // Elimina la tarea del local storage.
     });
 }
-
-
 
 // Función para agregar una nueva tarea a localStorage
 function agregarTareaLocalStorage(texto, completada = false) {
     // Añadir un nuevo objeto tarea al array global de tareas almacenadas
-    tareasAlmacenadas.push({ texto, completada });
-    
+    tareasAlmacenadas.push({ texto, completada });  
     // Guardar el array actualizado de tareas en localStorage
     localStorage.setItem('tareas', JSON.stringify(tareasAlmacenadas));
 }
@@ -84,7 +82,6 @@ function agregarTareaLocalStorage(texto, completada = false) {
 function actualizarTareaLocalStorage(texto, completada) {
     // Encontrar el índice de la tarea en el array de tareas almacenadas
     const tareaIndex = tareasAlmacenadas.findIndex(t => t.texto === texto);
- 
     // Si la tarea se encuentra, actualizar su estado de completada
     if (tareaIndex !== -1) {
         tareasAlmacenadas[tareaIndex].completada = completada;
@@ -97,8 +94,7 @@ function actualizarTareaLocalStorage(texto, completada) {
 // Función para eliminar una tarea de localStorage
 function eliminarTareaLocalStorage(texto) {
     // Filtrar el array de tareas almacenadas para eliminar la tarea con el texto especificado
-    tareasAlmacenadas = tareasAlmacenadas.filter(t => t.texto !== texto);
-    
+    tareasAlmacenadas = tareasAlmacenadas.filter(t => t.texto !== texto); 
     // Guardar el array actualizado de tareas en localStorage
     localStorage.setItem('tareas', JSON.stringify(tareasAlmacenadas));
 }
